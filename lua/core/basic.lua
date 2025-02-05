@@ -18,4 +18,14 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     end,
 })
 --rainbow
-vim.g.rainbow_active = 1
+--vim.g.rainbow_active = 1
+
+vim.cmd([[
+  highlight RainbowDelimiterRed    guifg=#ff0000
+  highlight RainbowDelimiterYellow guifg=#ffff00
+  highlight RainbowDelimiterBlue   guifg=#0000ff
+  highlight RainbowDelimiterOrange guifg=#ffa500
+  highlight RainbowDelimiterGreen  guifg=#00ff00
+  highlight RainbowDelimiterViolet guifg=#ee82ee
+  highlight RainbowDelimiterCyan   guifg=#00ffff
+]])
