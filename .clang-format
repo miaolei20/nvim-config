@@ -1,0 +1,11 @@
+# 基于 LLVM 风格调整
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: true
+ColumnLimit: 100
+PointerAlignment: Left
+SortIncludes: false
