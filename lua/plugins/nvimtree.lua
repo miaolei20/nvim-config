@@ -1,3 +1,10 @@
+return{
+     {
+        event = "VeryLazy",
+        "nvim-tree/nvim-tree.lua",
+        dependencies =
+        { "nvim-tree/nvim-web-devicons", opts = {} },
+        config = function()
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -23,3 +30,7 @@ require("nvim-tree").setup({
         dotfiles = true,
     },
 })
+end,
+
+    },
+}

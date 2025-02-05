@@ -23,16 +23,16 @@ vim.keymap.set("n", "<Leader>]", "<C-i>", opt)
 -- https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, expr = true })
 vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, expr = true })
--- lsp 快捷键设置
- -- rename
- vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opt)
- -- code action
- vim.keymap.set("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opt)
- -- go to definition
- vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opt)
- -- show hover
- vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opt)
- -- format
- vim.keymap.set("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opt)
 -- nvimTree
 vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', opt)
+
+vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>ToggleTerm direction=float<CR>", {
+  desc = "Toggle floating terminal",
+  silent = true,
+})
+-- 绑定快捷键自动编译运行当前 C++ 文件
+vim.keymap.set("n", "<leader>rr", function()
+  local file = vim.fn.expand("%")  -- 获取当前文件路径
+  local cmd = "g++ -std=c++17 -Wall " .. file .. " && ./a.out"
+  require("toggleterm").exec(cmd, 1)  -- 在终端 ID 1 中执行
+end, { desc = "Compile and Run C++" })

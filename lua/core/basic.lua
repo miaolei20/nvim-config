@@ -17,3 +17,5 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         })
     end,
 })
+--rainbow
+vim.g.rainbow_active = 1
