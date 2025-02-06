@@ -1,14 +1,3 @@
--- load the session for the current directory
-vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
-
--- select a session to load
-vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end)
-
--- load the last session
-vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end)
-
--- stop Persistence => session won't be saved on exit
-vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end)
 -- keybindings
 local opt = { noremap = true, silent = true }
 vim.g.mapleader = " "
@@ -23,16 +12,30 @@ vim.keymap.set("n", "<Leader>]", "<C-i>", opt)
 -- https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, expr = true })
 vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, expr = true })
--- lsp 快捷键设置
- -- rename
- vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opt)
- -- code action
- vim.keymap.set("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opt)
- -- go to definition
- vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opt)
- -- show hover
- vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opt)
- -- format
- vim.keymap.set("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opt)
 -- nvimTree
-vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', opt)
+vim.keymap.set("n", "<F3>", ":NvimTreeToggle<CR>", opt)
+
+vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>ToggleTerm direction=float<CR>", {
+    desc = "Toggle floating terminal",
+    silent = true,
+})
+
+--format
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>:lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>:lua vim.lsp.buf.format()<CR>a", { noremap = true, silent = true })
+-- 快速跳转
+vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
+vim.keymap.set("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
+vim.keymap.set("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
+vim.keymap.set("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
+vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
+vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
+vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
+vim.keymap.set("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
+vim.keymap.set("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
+
+
+-- 关闭操作
+vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete<CR>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bD", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Delete other buffers" })
+
