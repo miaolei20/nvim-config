@@ -1,22 +1,3 @@
--- load the session for the current directory
-vim.keymap.set("n", "<leader>qs", function()
-    require("persistence").load()
-end)
-
--- select a session to load
-vim.keymap.set("n", "<leader>qS", function()
-    require("persistence").select()
-end)
-
--- load the last session
-vim.keymap.set("n", "<leader>ql", function()
-    require("persistence").load({ last = true })
-end)
-
--- stop Persistence => session won't be saved on exit
-vim.keymap.set("n", "<leader>qd", function()
-    require("persistence").stop()
-end)
 -- keybindings
 local opt = { noremap = true, silent = true }
 vim.g.mapleader = " "
@@ -38,12 +19,23 @@ vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>ToggleTerm direction=float<CR>", {
     desc = "Toggle floating terminal",
     silent = true,
 })
--- 绑定快捷键自动编译运行当前 C++ 文件
-vim.keymap.set("n", "<leader>rr", function()
-    local file = vim.fn.expand("%") -- 获取当前文件路径
-    local cmd = "g++ -std=c++17 -Wall " .. file .. " && ./a.out"
-    require("toggleterm").exec(cmd, 1) -- 在终端 ID 1 中执行
-end, { desc = "Compile and Run C++" })
+
 --format
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>:lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>:lua vim.lsp.buf.format()<CR>a", { noremap = true, silent = true })
+-- 快速跳转
+vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
+vim.keymap.set("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
+vim.keymap.set("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
+vim.keymap.set("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
+vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
+vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
+vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
+vim.keymap.set("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
+vim.keymap.set("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
+
+
+-- 关闭操作
+vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete<CR>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bD", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Delete other buffers" })
+

@@ -17,8 +17,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         })
     end,
 })
---rainbow
---vim.g.rainbow_active = 1
 
 vim.cmd([[
   highlight RainbowDelimiterRed    guifg=#ff0000
@@ -29,3 +27,13 @@ vim.cmd([[
   highlight RainbowDelimiterViolet guifg=#ee82ee
   highlight RainbowDelimiterCyan   guifg=#00ffff
 ]])
+-- 在 ~/.config/nvim/init.lua 中添加
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.opt.makeprg = "g++ -std=c++17 -Wall -o %:r % && ./%:r"
+  end
+})
+
+-- 绑定快捷键（例如 <F5>）
+vim.api.nvim_set_keymap("n", "<F5>", ":make<CR>", { noremap = true, silent = true })
