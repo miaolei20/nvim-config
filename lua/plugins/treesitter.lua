@@ -31,6 +31,9 @@ return {
                     "javascript",
                     "typescript",
                 },
+                matchup = {
+                    enable = true, -- 启用 matchup 支持
+                },
             })
         end,
     },

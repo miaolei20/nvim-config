@@ -1,13 +1,15 @@
 return {
-    --onedark 主题
     {
-        "navarasu/onedark.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
         config = function()
-            --vim.cmd([[colorscheme onedark]])
-            require("onedark").setup({
-                style = "darker", ---可以选“dark，darker，cool,deep,warm,warmer
+            require("catppuccin").setup({
+                integrations = {
+                    bufferline = true, -- 启用 bufferline 集成
+                },
             })
-            require("onedark").load()
+            vim.cmd.colorscheme("catppuccin-mocha") -- 选择主题风格：latte, frappe, macchiato, mocha
         end,
     },
 }

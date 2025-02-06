@@ -4,7 +4,7 @@ return {
         keys = {
             { "<leader>f",  ":Telescope find_files<CR>", desc = "find files" },
             { "<leader>g",  ":Telescope live_grep<CR>",  desc = "grep files" },
-            { "<leader>rs", ":Telescope resume<CR>",     desc = "resume" },
+            { "<leader>h",  ":Telescope help_tags<CR>",   desc = "help tags" },
             { "<leader>o",  ":Telescope oldfiles<CR>",   desc = "oldfiles" },
         },
         "nvim-telescope/telescope.nvim",
