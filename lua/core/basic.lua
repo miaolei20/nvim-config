@@ -8,6 +8,7 @@ vim.opt.smartindent = true -- 智能缩进
 set.termguicolors = true
 set.ignorecase = true
 set.smartcase = true
+set.clipboard="unnamedplus",
 -- 在 copy 后高亮
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     pattern = { "*" },
@@ -27,7 +28,7 @@ vim.cmd([[
   highlight RainbowDelimiterViolet guifg=#ee82ee
   highlight RainbowDelimiterCyan   guifg=#00ffff
 ]])
--- 在 ~/.config/nvim/init.lua 中添加
+--一键运行
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp" },
   callback = function()
@@ -35,5 +36,5 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
--- 绑定快捷键（例如 <F5>）
-vim.api.nvim_set_keymap("n", "<F5>", ":make<CR>", { noremap = true, silent = true })
+-- 绑定快捷键（r）
+vim.api.nvim_set_keymap("n", "<leader>r", ":make<CR>", { noremap = true, silent = true })
