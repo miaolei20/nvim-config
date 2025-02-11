@@ -8,15 +8,14 @@ vim.opt.smartindent = true -- 智能缩进
 set.termguicolors = true
 set.ignorecase = true
 set.smartcase = true
-set.clipboard="unnamedplus",
--- 在 copy 后高亮
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-    pattern = { "*" },
-    callback = function()
-        vim.highlight.on_yank({
-            timeout = 300,
-        })
-    end,
+set.clipboard="unnamedplus"
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight yanked text", -- 添加描述（最佳实践）
+  group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }), -- 创建独立组
+  callback = function()
+    vim.highlight.on_yank { timeout = 300 }
+  end
 })
 
 vim.cmd([[
