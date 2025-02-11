@@ -1,0 +1,25 @@
+return{
+    event = "VeryLazy",
+    "tpope/vim-fugitive",
+    cmd = {
+        "G",
+        "Git",
+        "Gdiff",
+        "Gdiffsplit",
+        "Gvdiffsplit",
+        "Gwrite",
+        "Gread",
+        "Gremove",
+        "Gmove",
+        "Gstatus",
+        "Gblame",
+        "Ggrep",
+        "Glog",
+        "Gedit",
+        "Gsplit",
+        "Gvsplit",
+        "Gtabedit",
+        "Gbrowse",
+        "Gbrowse!",
+}
+}
