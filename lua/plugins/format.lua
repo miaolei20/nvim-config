@@ -9,16 +9,15 @@ return {
 
             null_ls.setup({
                 sources = {
-                    -- C/C++ 使用 clang-format，配置为 LLVM 风格
-                    formatting.clang_format.with({
-                        extra_args = { "-style=LLVM" },
-                    }),
+                    -- C/C++ 使用 clang-format
+                    formatting.clang_format,
                     -- Python 使用 black
                     formatting.black,
                     -- Java 使用 google-java-format
                     formatting.google_java_format,
                     -- Lua 使用 stylua
-                    formatting.stylua,                },
+                    formatting.stylua,
+                },
             })
         end,
     },
