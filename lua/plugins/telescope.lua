@@ -1,12 +1,12 @@
 return {
     event = "BufWinEnter", -- 事件触发时加载
     "nvim-telescope/telescope.nvim",
-    version = "0.1.x", -- 推荐使用 0.1.x 分支
+    version = "0.1.x",     -- 推荐使用 0.1.x 分支
     cmd = "Telescope",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- 更快性能
-        "nvim-telescope/telescope-ui-select.nvim",                -- 输入选择器
+        "nvim-telescope/telescope-fzf-native.nvim", -- 更快性能
+        "nvim-telescope/telescope-ui-select.nvim",  -- 输入选择器
     },
     keys = {
         { "<leader>f", ":Telescope find_files<CR>", desc = "find files" },
@@ -33,10 +33,10 @@ return {
             },
             pickers = {
                 find_files = {
-                    hidden = true,                                 -- 包含隐藏文件
+                    hidden = true,                                                -- 包含隐藏文件
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }, -- 依赖 fd 命令
                 },
-                
+
             },
             -- extensions = { ... }  -- 给拓展模块的配置
         })
